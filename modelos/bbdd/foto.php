@@ -14,6 +14,15 @@
     }
 
 
+	function listado_fotos_por_usuario($id_usuario){
+
+		$mbd = new PDO('mysql:host='.SERVIDOR_BBDD.';dbname='.BBDD, USER_BBDD, PASSWORD_BBDD);
+		$sql = "SELECT * FROM fotos WHERE id_usuario = " . $id_usuario;
+		$comentarios = $mbd->query($sql);
+		$array = $comentarios->fetchAll(PDO::FETCH_ASSOC);
+		return $array;
+		
+	}
 	
 	
 ?>
